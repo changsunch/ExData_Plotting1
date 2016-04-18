@@ -1,7 +1,6 @@
 rm(list = ls())
 
-png("plot2.png",width=480,height=480)
-par(bg="transparent")
+
 estimate_memory = 2075259*9*8/(10^6) #MB
 data = read.table("household_power_consumption.txt",skip=66637,nrows=2880,sep=";")
 data[,1] = as.character(data[,1])
@@ -15,6 +14,8 @@ data <- as.data.frame(cbind(date_time,data))
 data$Date = NULL #Delete Date column
 data$Time = NULL
 
+png("plot2.png",width=480,height=480)
+par(bg="transparent")
 with(data,plot(date_time,Global_active_power,"l",xlab = "", #
                ylab = "Global Active Power (kilowatts)"))
 dev.off()
