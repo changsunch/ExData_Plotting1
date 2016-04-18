@@ -2,7 +2,8 @@ rm(list = ls())
 
 
 estimate_memory = 2075259*9*8/(10^6) #MB
-data = read.table("household_power_consumption.txt",skip=66637,nrows=2880,sep=";")
+data = read.table("household_power_consumption.txt",skip=66637,nrows=2880,sep=";",#
+                  na.string = "?")
 data[,1] = as.character(data[,1])
 data[,2] = as.character(data[,2])
 names(data) = c("Date","Time","Global_active_power","Global_reactive_power",#
